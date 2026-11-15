@@ -1,0 +1,33 @@
+name: Build osinterz Windows
+on:
+  push:
+    branches: [osinterz-by-abjectov]
+    paths: ['osinterz/**', '.github/workflows/osinterz-windows.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows-exe:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: osinterz
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: osinterz/requirements.txt
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt pyinstaller==6.16.0 pytest
+      - name: Tests
+        run: python -m pytest -q
+      - name: Build standalone EXE
+        run: python -m PyInstaller --noconfirm --clean --onefile --windowed --name osinterz-by-abjectov --collect-submodules phonenumbers app.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: osinterz-windows
+          path: osinterz/dist/osinterz-by-abjectov.exe
+          retention-days: 30
+          if-no-files-found: error

@@ -2,12 +2,8 @@
 
 soft by rob run
 
-Визуальный лаунчер для Windows x64. Кнопка Inject показывает только анимацию прогресса. Приложение не выполняет инжект, не запускает другие программы и не обращается к сети.
+[Скачать superriotity.exe для Windows x64](https://github.com/ukrger/superriotity/raw/refs/heads/main/superriotity.exe)
 
-## Скачать
+Визуальная болванка: Inject показывает анимацию прогресса, Reset сбрасывает её. Никакого инжекта, запуска программ или обращений к сети. Установка не нужна. Escape закрывает окно.
 
-[Скачать superriotity.exe](https://github.com/ukrger/superriotity/releases/latest/download/superriotity.exe)
-
-Установка не требуется. Запустите EXE, используйте Reset для сброса анимации. Окно можно перетаскивать за заголовок; Escape закрывает приложение.
-
-Собрано на Linux для Windows x64. Запуск на Windows пока не проверен.
+Собрано для Windows x64 на Linux. Запуск на Windows пока не проверен.
